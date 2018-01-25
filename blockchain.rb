@@ -1,3 +1,5 @@
+require 'pp'
+
 class Blockchain
   GENESIS_BLOCK_INDEX = 0
 
@@ -12,7 +14,18 @@ class Blockchain
     Block.new(@index, 'genesis', 'genesis')
   end
 
-  def next_block(data, previous_block_hash)
+  def next_block(data)
     @chain << Block.new(@index, data, previous_block_hash)
+  end
+
+  def previous_block_hash
+    @chain.last.hash
+  end
+
+  def print_transactions
+    print "\n"
+    @chain.each do |block|
+      pp "Data: #{block.data}, Hash: #{block.hash}"
+    end
   end
 end

@@ -27,14 +27,22 @@ describe 'Blockchain' do
 
   describe '#next_block' do
     it 'creates a new block and adds it to the chain' do
-      @blockchain.next_block('faux data', @blockchain.chain.last.hash)
+      @blockchain.next_block('faux data')
       expect(@blockchain.chain.count).to eq(2)
     end
 
     it "has a reference to the previous block's hash" do
       last_block_hash = @blockchain.chain.last.hash
-      @blockchain.next_block('faux data', last_block_hash)
+      @blockchain.next_block('faux data')
       expect(@blockchain.chain.last.previous_block_hash).to eq(last_block_hash)
+    end
+  end
+end
+
+describe 'Rubycoin' do
+  describe '#simulate_transations' do
+    it 'prints three transations' do
+      Rubycoin.new.simulate_transations
     end
   end
 end

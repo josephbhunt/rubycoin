@@ -1,7 +1,7 @@
 require 'digest'
 
 class Block
-  attr_accessor :hash, :previous_block_hash
+  attr_accessor :hash, :data, :previous_block_hash
 
   def initialize(index, data, previous_block_hash)
     @index = index
