@@ -11,7 +11,7 @@ class Blockchain
   end
 
   def first_block
-    Block.new(@index, 'genesis', 'genesis')
+    Block.new(0, 'genesis', 'genesis')
   end
 
   def next_block(data)
